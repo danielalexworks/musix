@@ -1,0 +1,9 @@
+Needs Libraries, run:
+
+pip install numby scipy pydub
+
+run with
+python run.py
+or python3 run.py
+
+follow prompts
