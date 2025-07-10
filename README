@@ -2,8 +2,18 @@ Needs Libraries, run:
 
 pip install numby scipy pydub
 
+
+
 run with
+
 python run.py
-or python3 run.py
+
+or 
+
+python3 run.py
+
+
 
 follow prompts
+E - takes mp3 files from a folder and converts them to npzs for storage
+D - takes npz files from storage and converts them to mp3s
