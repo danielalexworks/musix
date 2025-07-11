@@ -2,43 +2,18 @@ import os
 import json
 import numpy as np
 
-def list_mp3_files_in_folder(folder_path):
+
+def list_all_files_in_folder_by_type(ftype, folder_path):
     """
     Returns a list of absolute paths to all MP3 files in the specified folder (non-recursive).
     """
-    mp3_files = []
-    for filename in os.listdir(folder_path):
-        if filename.lower().endswith('.mp3'):
-            full_path = os.path.join(folder_path, filename)
-            mp3_files.append(os.path.abspath(full_path))
-    return mp3_files
-
-
-def list_mp3_files_recursive(folder_path):
-    """
-    Returns a list of absolute paths to all MP3 files in the specified folder and its subfolders.
-    """
-    mp3_files = []
+    foundfiles = []
     for root, dirs, files in os.walk(folder_path):
         for filename in files:
-            if filename.lower().endswith('.mp3'):
+            if filename.lower().endswith(ftype):
                 full_path = os.path.join(root, filename)
-                mp3_files.append(os.path.abspath(full_path))
-    return mp3_files
-
-
-def list_npz_files_recursive(folder_path):
-    """
-    Returns a list of absolute paths to all NPZ files in the specified folder and its subfolders.
-    """
-    npz_files = []
-    for root, dirs, files in os.walk(folder_path):
-        for filename in files:
-            if filename.lower().endswith('.npz'):
-                full_path = os.path.join(root, filename)
-                npz_files.append(os.path.abspath(full_path))
-    return npz_files
-
+                foundfiles.append(os.path.abspath(full_path))
+    return foundfiles
 
 
 def save_audio_data_to_npz(audio_data, npz_path):
@@ -81,3 +56,11 @@ def load_audio_data_from_json(json_path):
     with open(json_path, "r") as f:
         audio_data = json.load(f)
     return audio_data
+
+
+def ensure_dir_exists(dir_path):
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
+        print(f"📁 Created directory: {dir_path}")
+    else:
+        print(f"✅ Directory already exists: {dir_path}")

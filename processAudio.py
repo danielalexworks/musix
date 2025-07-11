@@ -6,7 +6,29 @@ from scipy.io import wavfile
 from scipy.signal import resample
 import fileManagement as fm
 import restoreAudio as ra
+import imageConvert as ic
 import os
+
+# LOADS PNG Files
+# CONVERT to mp3
+def load_png_convert_and_store_as_mp3(pngFilePaths, outputFolder, sample_rate):
+    for p in pngFilePaths:
+        outfile = os.path.splitext(os.path.basename(p))[0] + "_png.mp3"
+        outpath = os.path.join(outputFolder, outfile)
+        print(outpath)
+        audio_data = ic.image_to_audio_data(p, sample_rate)
+        output = ra.create_audio_file(audio_data,outpath)
+        
+
+# LOADS NPZ Files
+# CONVERT to png
+def load_npz_convert_and_store_as_png(npzFilePaths, outputFolder):
+    for n in npzFilePaths:
+        outfile = os.path.splitext(os.path.basename(n))[0] + ".png"
+        outpath = os.path.join(outputFolder, outfile)
+        print(outpath)
+        data = fm.load_audio_data_from_npz(n)
+        outtput = ic.audio_data_to_image(data, outpath)
 
 
 # LOADS NPZ Files
@@ -15,6 +37,7 @@ def load_npz_convert_and_store_as_mp3(npzFilePaths, outputFolder):
     for n in npzFilePaths:
         outfile = os.path.splitext(os.path.basename(n))[0] + ".mp3"
         outpath = os.path.join(outputFolder, outfile)
+        print(outpath)
         data = fm.load_audio_data_from_npz(n)
         output = ra.create_audio_file(data,outpath)
 
