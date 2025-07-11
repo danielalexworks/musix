@@ -6,6 +6,13 @@ A simple Python tool to:
 - Reconstruct audio from images
 
 ---
+It works in batches based on files in folders. Folders are set in run.py, by default they are
+- mp3Folder = "inputmp3s/"             	# .mp3s go in here
+- dataFolder = "data/"            		# where .npz data outputs
+- outputFolder = 'outputmp3s/'    		# where new .mp3s output when generated from .npzs
+- imageOutFolder = 'outputImages/'		# where new .pngs output
+- newMp3Folder = 'newMp3s/'				# where new mp3s output when generatead from .pngs
+---
 
 ## Requirements
 
