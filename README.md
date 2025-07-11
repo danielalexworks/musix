@@ -7,11 +7,13 @@ A simple Python tool to:
 
 ---
 It works in batches based on files in folders. Folders are set in run.py, by default they are
-- mp3Folder = "inputmp3s/"             	# .mp3s go in here
-- dataFolder = "data/"            		# where .npz data outputs
-- outputFolder = 'outputmp3s/'    		# where new .mp3s output when generated from .npzs
-- imageOutFolder = 'outputImages/'		# where new .pngs output
-- newMp3Folder = 'newMp3s/'				# where new mp3s output when generatead from .pngs
+| Folder Variable    | Default Path          | Description                                 |
+|--------------------|-----------------------|---------------------------------------------|
+| `mp3Folder`        | `inputmp3s/`          | `.mp3` files go in here                     |
+| `dataFolder`       | `data/`               | Where `.npz` data outputs                   |
+| `outputFolder`     | `outputmp3s/`         | Where new `.mp3` files output from `.npz`s  |
+| `imageOutFolder`   | `outputImages/`       | Where new `.png` images output              |
+| `newMp3Folder`     | `newMp3s/`            | Where new `.mp3` files output from `.png`s  |
 ---
 
 ## Requirements
