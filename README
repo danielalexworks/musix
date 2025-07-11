@@ -1,19 +1,48 @@
-Needs Libraries, run:
+# Audio Image Encoder
 
-pip install numby scipy pydub
+A simple Python tool to:
+- Encode MP3s into `.npz` data files
+- Generate grayscale images from audio data
+- Reconstruct audio from images
 
+---
 
+## Requirements
 
-run with
+Install libraries with:
 
+```bash
+pip install numpy scipy pydub pillow
+```
+
+---
+
+## Usage
+
+Run with:
+
+```bash
 python run.py
-
-or 
-
+# or
 python3 run.py
+```
 
+Follow the prompts:
 
+- `e` : encode MP3s from folder
+- `d` : decode NPZs from folder
+- `g` : generate images from NPZ data folder
+- `m` : generate MP3s from image folder
+- `s` : generate MP3 from a single image
+- `q` : quit
 
-follow prompts
-E - takes mp3 files from a folder and converts them to npzs for storage
-D - takes npz files from storage and converts them to mp3s
+---
+
+## Notes
+
+- Creates directories automatically if they don't exist.
+- Images store audio data pixel by pixel (0-255 mapped to -1.0 to 1.0).
+
+---
+
+MIT License
