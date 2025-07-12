@@ -7,6 +7,7 @@ def list_all_files_in_folder_by_type(ftype, folder_path):
     """
     Returns a list of absolute paths to all MP3 files in the specified folder (non-recursive).
     """
+    ftype = ftype.lower()
     foundfiles = []
     for root, dirs, files in os.walk(folder_path):
         for filename in files:
